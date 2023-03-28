@@ -1,7 +1,7 @@
 const { collection, getDocs } = require('firebase/firestore');
 const db = require('../db');
 
-const projectsRef = collection(db, 'project');
+const projectsRef = collection(db, 'projects');
 
 const getAllProjects = async (req, res) => {
   try {
