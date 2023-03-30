@@ -1,7 +1,7 @@
-const { collection, getDocs } = require('firebase/firestore');
+const { collection, getDocs, addDoc } = require('firebase/firestore');
 const db = require('../db');
 
-const messagesRef = collection(db, 'messages');
+const messagesRef = collection(db, 'messages')
 
 const getAllMessages = async (req, res) => {
   try {
@@ -17,6 +17,19 @@ const getAllMessages = async (req, res) => {
   }
 }
 
+const postSendMessage = async (req, res) => {
+  try {
+    await addDoc(messagesRef, {
+      ...req.body,
+      createdAt: new Date().getTime(),
+    })
+    res.status(200).send({ message: "OK" })
+  } catch (error) {
+    res.status(400).send(error.message)
+  }
+}
+
 module.exports = {
-  getAllMessages
+  getAllMessages,
+  postSendMessage
 }

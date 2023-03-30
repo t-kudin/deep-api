@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { getDeliveryMethods } = require("../controllers/deliveryMethodsController");
 const { getAllFanlab } = require("../controllers/fanlabController");
 const { getAllFanshop } = require("../controllers/fanshopController");
-const { getAllMessages } = require("../controllers/messagesController");
+const { getAllMessages, postSendMessage } = require("../controllers/messagesController");
 const { getAllMovies } = require('../controllers/moviesController');
 const { getAllNews } = require('../controllers/newsController');
 const { getAllProject } = require("../controllers/projectController");
@@ -20,6 +20,7 @@ router.get('/user', getUser);
 router.get('/transactions', getTransactions);
 router.get('/deliveryMethods', getDeliveryMethods);
 router.get('/messages', getAllMessages);
+router.post('/messages', postSendMessage)
 router.get('/project', getAllProject);
 router.get('/projects', getAllProjects);
 
