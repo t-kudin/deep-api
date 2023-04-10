@@ -6,7 +6,7 @@ const { getAllMessages, postSendMessage } = require("../controllers/messagesCont
 const { getAllMovies } = require('../controllers/moviesController');
 const { getAllNews } = require('../controllers/newsController');
 const { getAllProject } = require("../controllers/projectController");
-const { getAllProjects } = require("../controllers/projectsController");
+const { getAllProjects, setRequestForProject } = require("../controllers/projectsController");
 const { getAllTestMovies } = require("../controllers/testMoviesController");
 const { getTransactions } = require("../controllers/transactionsController");
 const { getUser } = require("../controllers/userController");
@@ -23,6 +23,7 @@ router.get('/messages', getAllMessages);
 router.post('/messages', postSendMessage)
 router.get('/project', getAllProject);
 router.get('/projects', getAllProjects);
+router.post('/projects', setRequestForProject);
 
 
 module.exports = {
